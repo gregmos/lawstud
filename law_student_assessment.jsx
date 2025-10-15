@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AlertCircle, CheckCircle, XCircle, TrendingUp } from 'lucide-react';
 
 const LawStudentAssessment = () => {
+  const [testStarted, setTestStarted] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
   const [showResults, setShowResults] = useState(false);
@@ -974,10 +975,103 @@ const LawStudentAssessment = () => {
   };
 
   const restart = () => {
+    setTestStarted(false);
     setCurrentQuestion(0);
     setAnswers({});
     setShowResults(false);
   };
+
+  const startTest = () => {
+    setTestStarted(true);
+  };
+
+  // Intro page
+  if (!testStarted) {
+    return (
+      <div className="min-h-screen bg-white p-4 md:p-8 relative overflow-hidden">
+        {/* Gradient Orbs Background */}
+        <div className="fixed inset-0 -z-10 overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-cyan-100/60 to-cyan-200/40 rounded-full blur-3xl opacity-80"></div>
+          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-100/60 to-purple-200/40 rounded-full blur-3xl opacity-80"></div>
+          <div className="absolute bottom-1/4 left-1/3 w-[500px] h-[500px] bg-gradient-to-br from-blue-100/40 to-blue-200/30 rounded-full blur-3xl opacity-70"></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white/70 backdrop-blur-sm border border-gray-200/60 rounded-2xl shadow-lg p-8 md:p-12 transition-all duration-300">
+            <div className="text-center mb-8">
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                Тест для будущих юристов
+              </h1>
+              <div className="h-1 w-32 bg-gradient-to-r from-cyan-600 to-blue-600 mx-auto rounded-full shadow-lg shadow-cyan-500/30 mb-6"></div>
+            </div>
+
+            <div className="space-y-6 mb-8">
+              <div className="bg-white/50 backdrop-blur-sm border border-cyan-200/60 rounded-xl p-6 hover:bg-white/90 hover:shadow-xl transition-all duration-300">
+                <h2 className="text-xl font-bold text-gray-900 mb-3">Кому подойдет этот тест?</h2>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-start">
+                    <span className="text-cyan-600 mr-2">•</span>
+                    <span>Тем, кто думает стать юристом</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-600 mr-2">•</span>
+                    <span>Тем, кто сомневается, стоит ли продолжать карьеру юриста</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-cyan-600 mr-2">•</span>
+                    <span>Юристам, которые любят проходить тесты</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-white/50 backdrop-blur-sm border border-purple-200/60 rounded-xl p-6 hover:bg-white/90 hover:shadow-xl transition-all duration-300">
+                <h2 className="text-xl font-bold text-gray-900 mb-3">О тесте</h2>
+                <p className="text-gray-700 mb-3">
+                  Тест создан по <strong>авторской методике</strong> и основан на личном видении профессии.
+                </p>
+                <p className="text-gray-700 mb-3">
+                  <strong>Никакие данные не собираются</strong> — проходите тест и наслаждайтесь результатом.
+                </p>
+                <p className="text-gray-700">
+                  Данные по зарплатам и некоторым аспектам карьеры взяты из <strong>Обзора зарплат за 2024-2025 гг</strong> от Максима Матвиенко{' '}
+                  <a
+                    href="https://t.me/max_legal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cyan-600 hover:text-cyan-700 underline font-medium"
+                  >
+                    Max Legal
+                  </a>
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-br from-emerald-50/50 to-green-50/50 border border-emerald-200/60 rounded-xl p-6 hover:shadow-xl transition-all duration-300">
+                <h2 className="text-xl font-bold text-gray-900 mb-3">Об авторе</h2>
+                <p className="text-gray-700">
+                  Тест разработан <strong>Москалёвым Григорием</strong> — юристом и tech энтузиастом, автором телеграм-канала{' '}
+                  <a
+                    href="https://t.me/legaltech101"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cyan-600 hover:text-cyan-700 underline font-medium"
+                  >
+                    Legal Tech 101
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <button
+              onClick={startTest}
+              className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:shadow-2xl hover:shadow-cyan-500/30 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg text-lg"
+            >
+              Начать тест
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (showResults) {
     const results = calculateResults();
