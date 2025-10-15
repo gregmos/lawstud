@@ -1435,23 +1435,23 @@ const LawStudentAssessment = () => {
 
             {isAnswered && (
               <div className="mt-6 bg-amber-50/50 border border-amber-200/60 rounded-xl p-4 backdrop-blur-sm">
-                <div className="flex items-start justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
                   <div className="flex-1">
-                    <p className="text-sm text-gray-700 mb-2">
+                    <p className="text-sm text-gray-700">
                       <strong>Особо важный вопрос?</strong> Если данный вопрос имеет для вас критическое значение при выборе карьеры,
                       отметьте его. Такие ответы получат больший вес в финальном анализе.
                     </p>
                   </div>
                   <button
                     onClick={() => toggleCritical(question.id)}
-                    className={`ml-4 flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all duration-300 ${
+                    className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all duration-300 whitespace-nowrap ${
                       criticalAnswers[question.id]
                         ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30'
                         : 'bg-white border border-amber-200 text-gray-700 hover:bg-amber-50'
                     }`}
                   >
                     <Star className={`w-5 h-5 ${criticalAnswers[question.id] ? 'fill-current' : ''}`} />
-                    {criticalAnswers[question.id] ? 'Помечено' : 'Пометить'}
+                    <span className="text-sm sm:text-base">{criticalAnswers[question.id] ? 'Помечено' : 'Пометить'}</span>
                   </button>
                 </div>
               </div>

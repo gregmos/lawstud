@@ -2,9 +2,27 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="description" content="Тест профориентации для будущих юристов с актуальными данными о зарплатах и карьерных путях">
+    <meta name="theme-color" content="#0891b2">
     <title>Тест для будущих юристов | Legal Tech 101</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Тест для будущих юристов">
+    <meta property="og:description" content="Узнайте, подходит ли вам карьера юриста. Актуальные данные о зарплатах, специализациях и работодателях.">
+    <meta property="og:site_name" content="Legal Tech 101">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Тест для будущих юристов">
+    <meta name="twitter:description" content="Узнайте, подходит ли вам карьера юриста. Актуальные данные о зарплатах, специализациях и работодателях.">
+
+    <!-- Mobile optimizations -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Тест юриста">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -27,6 +45,21 @@
                 sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            /* Улучшения для touch-устройств */
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        /* Увеличиваем минимальную область нажатия для кнопок на мобильных */
+        @media (max-width: 640px) {
+            button {
+                min-height: 44px; /* Рекомендация Apple для touch targets */
+            }
+        }
+
+        /* Плавная прокрутка */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
