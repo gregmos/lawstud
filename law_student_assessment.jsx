@@ -987,71 +987,85 @@ const LawStudentAssessment = () => {
     const Icon = recommendation.icon;
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 md:p-8">
+      <div className="min-h-screen bg-white p-4 md:p-8 relative overflow-hidden">
+        {/* Gradient Orbs Background */}
+        <div className="fixed inset-0 -z-10 overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-cyan-100/60 to-cyan-200/40 rounded-full blur-3xl opacity-80"></div>
+          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-100/60 to-purple-200/40 rounded-full blur-3xl opacity-80"></div>
+          <div className="absolute bottom-1/4 left-1/3 w-[500px] h-[500px] bg-gradient-to-br from-blue-100/40 to-blue-200/30 rounded-full blur-3xl opacity-70"></div>
+        </div>
+
         <div className="max-w-5xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-10">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6 text-center">
+          <div className="bg-white/70 backdrop-blur-sm border border-gray-200/60 rounded-2xl shadow-lg p-6 md:p-10 transition-all duration-300">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">
               Результаты тестирования
             </h1>
 
-            <div className={`rounded-xl p-6 mb-8 ${
-              recommendation.type === 'success' ? 'bg-green-50 border-2 border-green-300' :
-              recommendation.type === 'warning' ? 'bg-yellow-50 border-2 border-yellow-300' :
-              recommendation.type === 'caution' ? 'bg-orange-50 border-2 border-orange-300' :
-              'bg-red-50 border-2 border-red-300'
+            <div className={`rounded-xl p-6 mb-8 bg-white/50 backdrop-blur-sm border transition-all duration-300 hover:shadow-xl ${
+              recommendation.type === 'success' ? 'border-emerald-200' :
+              recommendation.type === 'warning' ? 'border-amber-200' :
+              recommendation.type === 'caution' ? 'border-amber-200' :
+              'border-gray-300'
             }`}>
               <div className="flex items-center mb-4">
-                <Icon className={`w-12 h-12 mr-4 ${
-                  recommendation.type === 'success' ? 'text-green-600' :
-                  recommendation.type === 'warning' ? 'text-yellow-600' :
-                  recommendation.type === 'caution' ? 'text-orange-600' :
-                  'text-red-600'
-                }`} />
-                <h2 className="text-2xl font-bold text-gray-800">{recommendation.title}</h2>
+                <div className={`p-3 rounded-xl mr-4 ${
+                  recommendation.type === 'success' ? 'bg-emerald-100 border border-emerald-200' :
+                  recommendation.type === 'warning' ? 'bg-amber-100 border border-amber-200' :
+                  recommendation.type === 'caution' ? 'bg-amber-100 border border-amber-200' :
+                  'bg-gray-100 border border-gray-200'
+                }`}>
+                  <Icon className={`w-8 h-8 ${
+                    recommendation.type === 'success' ? 'text-emerald-600' :
+                    recommendation.type === 'warning' ? 'text-amber-600' :
+                    recommendation.type === 'caution' ? 'text-amber-600' :
+                    'text-gray-600'
+                  }`} />
+                </div>
+                <h2 className="text-2xl font-bold text-gray-900">{recommendation.title}</h2>
               </div>
-              <p className="text-gray-700 text-lg mb-4">{recommendation.text}</p>
-              <div className="bg-white bg-opacity-70 rounded-lg p-4">
-                <p className="text-gray-800 font-medium">{recommendation.advice}</p>
+              <p className="text-gray-700 text-lg mb-4 italic">{recommendation.text}</p>
+              <div className="bg-white/70 backdrop-blur-sm rounded-lg p-4 border border-gray-200/60">
+                <p className="text-gray-700 font-medium">{recommendation.advice}</p>
               </div>
             </div>
 
             <div className="mb-8">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Общая оценка соответствия</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Общая оценка соответствия</h3>
               <div className="mb-2">
                 <div className="flex justify-between mb-1">
                   <span className="text-gray-700 font-medium">Общий балл</span>
                   <span className="text-gray-900 font-bold">{results.percentage}%</span>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-4">
+                <div className="w-full bg-gray-200/50 rounded-full h-4 backdrop-blur-sm">
                   <div
-                    className={`h-4 rounded-full transition-all duration-500 ${
-                      results.percentage >= 75 ? 'bg-green-500' :
-                      results.percentage >= 60 ? 'bg-yellow-500' :
-                      results.percentage >= 45 ? 'bg-orange-500' :
-                      'bg-red-500'
+                    className={`h-4 rounded-full transition-all duration-500 shadow-lg ${
+                      results.percentage >= 75 ? 'bg-gradient-to-r from-emerald-500 to-green-600 shadow-emerald-500/30' :
+                      results.percentage >= 60 ? 'bg-gradient-to-r from-amber-500 to-yellow-600 shadow-amber-500/30' :
+                      results.percentage >= 45 ? 'bg-gradient-to-r from-amber-500 to-orange-600 shadow-amber-500/30' :
+                      'bg-gradient-to-r from-gray-500 to-gray-600 shadow-gray-500/30'
                     }`}
                     style={{ width: `${results.percentage}%` }}
                   ></div>
                 </div>
               </div>
-              
+
               <div className="mt-4">
                 <div className="flex justify-between mb-1">
                   <span className="text-gray-700 font-medium">Критические параметры</span>
                   <span className="text-gray-900 font-bold">{results.criticalPercentage}%</span>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-4">
+                <div className="w-full bg-gray-200/50 rounded-full h-4 backdrop-blur-sm">
                   <div
-                    className={`h-4 rounded-full transition-all duration-500 ${
-                      results.criticalPercentage >= 70 ? 'bg-green-500' :
-                      results.criticalPercentage >= 60 ? 'bg-yellow-500' :
-                      results.criticalPercentage >= 45 ? 'bg-orange-500' :
-                      'bg-red-500'
+                    className={`h-4 rounded-full transition-all duration-500 shadow-lg ${
+                      results.criticalPercentage >= 70 ? 'bg-gradient-to-r from-emerald-500 to-green-600 shadow-emerald-500/30' :
+                      results.criticalPercentage >= 60 ? 'bg-gradient-to-r from-amber-500 to-yellow-600 shadow-amber-500/30' :
+                      results.criticalPercentage >= 45 ? 'bg-gradient-to-r from-amber-500 to-orange-600 shadow-amber-500/30' :
+                      'bg-gradient-to-r from-gray-500 to-gray-600 shadow-gray-500/30'
                     }`}
                     style={{ width: `${results.criticalPercentage}%` }}
                   ></div>
                 </div>
-                <p className="text-sm text-gray-600 mt-1">
+                <p className="text-sm text-gray-500 mt-1 italic">
                   Мотивация, стрессоустойчивость и стиль работы
                 </p>
               </div>
@@ -1060,33 +1074,41 @@ const LawStudentAssessment = () => {
             {/* Рекомендации по направлениям */}
             {specializations.length > 0 && (
               <div className="mb-8">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                  🎯 Рекомендуемые направления в юриспруденции
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  На основе ваших ответов мы подобрали специализации, которые лучше всего соответствуют вашему профилю:
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/30 mr-3">
+                    <div className="w-6 h-6 bg-white rounded"></div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    Рекомендуемые направления в юриспруденции
+                  </h3>
+                </div>
+                <p className="text-gray-700 mb-4 italic">
+                  На основе ваших ответов мы подобрали специализации, которые лучше всего соответствуют вашему профилю
                 </p>
                 <div className="space-y-4">
                   {specializations.map((spec, index) => (
-                    <div key={index} className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-5 border-l-4 border-indigo-500">
-                      <div className="flex justify-between items-start mb-3">
-                        <h4 className="text-lg font-bold text-gray-800">{spec.name}</h4>
-                        <span className="bg-indigo-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                          {spec.match}% совпадение
-                        </span>
-                      </div>
-                      <p className="text-gray-700 mb-3">{spec.description}</p>
-                      <div className="mb-3">
-                        <p className="font-semibold text-gray-800 mb-1">Почему подходит:</p>
-                        <ul className="list-disc list-inside text-gray-700 space-y-1">
-                          {spec.reasons.map((reason, i) => (
-                            <li key={i}>{reason}</li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div className="bg-white bg-opacity-60 rounded p-3">
-                        <p className="font-semibold text-gray-800 mb-1">Где работать:</p>
-                        <p className="text-gray-700 text-sm">{spec.employers.join(', ')}</p>
+                    <div key={index} className="group relative bg-white/50 backdrop-blur-sm rounded-lg p-5 border border-cyan-200/60 hover:bg-white/90 hover:shadow-xl transition-all duration-300">
+                      <div className="absolute inset-0 bg-gradient-to-br from-cyan-100/20 via-purple-100/20 to-blue-100/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="relative z-10">
+                        <div className="flex justify-between items-start mb-3">
+                          <h4 className="text-lg font-bold text-gray-900">{spec.name}</h4>
+                          <span className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg shadow-cyan-500/30">
+                            {spec.match}% совпадение
+                          </span>
+                        </div>
+                        <p className="text-gray-700 mb-3">{spec.description}</p>
+                        <div className="mb-3">
+                          <p className="font-semibold text-gray-900 mb-1">Почему подходит:</p>
+                          <ul className="list-disc list-inside text-gray-700 space-y-1">
+                            {spec.reasons.map((reason, i) => (
+                              <li key={i}>{reason}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div className="bg-white/70 backdrop-blur-sm rounded p-3 border border-gray-200/60">
+                          <p className="font-semibold text-gray-900 mb-1">Где работать:</p>
+                          <p className="text-gray-700 text-sm">{spec.employers.join(', ')}</p>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -1097,31 +1119,38 @@ const LawStudentAssessment = () => {
             {/* Рекомендации по работодателям */}
             {employerTypes.length > 0 && (
               <div className="mb-8">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                  🏢 Рекомендуемые типы работодателей
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Типы организаций, где вы можете быть наиболее успешны и удовлетворены:
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-500 to-green-600 shadow-lg shadow-emerald-500/30 mr-3">
+                    <div className="w-6 h-6 bg-white rounded"></div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    Рекомендуемые типы работодателей
+                  </h3>
+                </div>
+                <p className="text-gray-700 mb-4 italic">
+                  Типы организаций, где вы можете быть наиболее успешны и удовлетворены
                 </p>
                 <div className="space-y-5">
                   {employerTypes.map((employer, index) => (
-                    <div key={index} className="bg-white rounded-lg p-5 border-2 border-gray-200 hover:border-indigo-300 transition-colors">
-                      <div className="flex justify-between items-start mb-3">
-                        <h4 className="text-lg font-bold text-gray-800">{employer.type}</h4>
-                        <div className="flex items-center">
-                          <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold mr-2">
-                            {employer.match}%
-                          </span>
+                    <div key={index} className="group relative bg-white/50 backdrop-blur-sm rounded-lg p-5 border border-gray-200/60 hover:bg-white/90 hover:shadow-xl transition-all duration-300">
+                      <div className="absolute inset-0 bg-gradient-to-br from-cyan-100/20 via-purple-100/20 to-blue-100/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="relative z-10">
+                        <div className="flex justify-between items-start mb-3">
+                          <h4 className="text-lg font-bold text-gray-900">{employer.type}</h4>
+                          <div className="flex items-center">
+                            <span className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg shadow-cyan-500/30 mr-2">
+                              {employer.match}%
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                      
-                      <div className="bg-blue-50 rounded-lg p-3 mb-3">
-                        <p className="font-semibold text-blue-900 text-sm">{employer.fit}</p>
-                      </div>
+
+                        <div className="bg-cyan-50 border border-cyan-100 rounded-lg p-3 mb-3">
+                          <p className="font-semibold text-cyan-900 text-sm">{employer.fit}</p>
+                        </div>
 
                       <div className="grid md:grid-cols-2 gap-4 mb-3">
                         <div>
-                          <p className="font-semibold text-green-700 mb-2">✅ Плюсы:</p>
+                          <p className="font-semibold text-emerald-700 mb-2">Плюсы:</p>
                           <ul className="space-y-1">
                             {employer.pros.map((pro, i) => (
                               <li key={i} className="text-sm text-gray-700">• {pro}</li>
@@ -1129,7 +1158,7 @@ const LawStudentAssessment = () => {
                           </ul>
                         </div>
                         <div>
-                          <p className="font-semibold text-red-700 mb-2">⚠️ Минусы:</p>
+                          <p className="font-semibold text-amber-700 mb-2">Минусы:</p>
                           <ul className="space-y-1">
                             {employer.cons.map((con, i) => (
                               <li key={i} className="text-sm text-gray-700">• {con}</li>
@@ -1138,17 +1167,18 @@ const LawStudentAssessment = () => {
                         </div>
                       </div>
 
-                      <div className="bg-gray-50 rounded p-3">
-                        <p className="font-semibold text-gray-800 text-sm mb-1">Примеры:</p>
+                      <div className="bg-white/70 backdrop-blur-sm rounded p-3 border border-gray-200/60">
+                        <p className="font-semibold text-gray-900 text-sm mb-1">Примеры:</p>
                         <p className="text-gray-700 text-sm">{employer.examples.join(', ')}</p>
                       </div>
 
                       {employer.salary && (
-                        <div className="bg-indigo-50 rounded p-3 mt-3">
-                          <p className="font-semibold text-indigo-900 text-sm mb-1">💰 Зарплаты (Москва, 2025):</p>
-                          <p className="text-indigo-800 text-sm">{employer.salary}</p>
+                        <div className="bg-purple-50 border border-purple-100 rounded p-3 mt-3">
+                          <p className="font-semibold text-purple-900 text-sm mb-1">Зарплаты (Москва, 2025):</p>
+                          <p className="text-purple-800 text-sm">{employer.salary}</p>
                         </div>
                       )}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -1156,24 +1186,24 @@ const LawStudentAssessment = () => {
             )}
 
             <div className="mb-8">
-              <h3 className="text-xl font-bold text-gray-800 mb-4">Детализация по категориям</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Детализация по категориям</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {Object.entries(results.categoryScores).map(([category, scores]) => {
                   const percentage = Math.round((scores.score / scores.max) * 100);
                   return (
-                    <div key={category} className="bg-gray-50 rounded-lg p-4">
+                    <div key={category} className="bg-white/50 backdrop-blur-sm rounded-lg p-4 border border-gray-200/60 hover:bg-white/90 hover:shadow-lg transition-all duration-300">
                       <div className="flex justify-between mb-2">
                         <span className="text-sm font-medium text-gray-700">
                           {getCategoryName(category)}
                         </span>
                         <span className="text-sm font-bold text-gray-900">{percentage}%</span>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="w-full bg-gray-200/50 rounded-full h-2 backdrop-blur-sm">
                         <div
-                          className={`h-2 rounded-full ${
-                            percentage >= 70 ? 'bg-green-500' :
-                            percentage >= 50 ? 'bg-yellow-500' :
-                            'bg-red-500'
+                          className={`h-2 rounded-full shadow-sm transition-all duration-500 ${
+                            percentage >= 70 ? 'bg-gradient-to-r from-emerald-500 to-green-600' :
+                            percentage >= 50 ? 'bg-gradient-to-r from-amber-500 to-yellow-600' :
+                            'bg-gradient-to-r from-gray-400 to-gray-500'
                           }`}
                           style={{ width: `${percentage}%` }}
                         ></div>
@@ -1184,8 +1214,8 @@ const LawStudentAssessment = () => {
               </div>
             </div>
 
-            <div className="bg-blue-50 rounded-lg p-6 mb-6">
-              <h3 className="text-lg font-bold text-gray-800 mb-3">Как интерпретировать результаты</h3>
+            <div className="bg-blue-50/50 border border-blue-100 backdrop-blur-sm rounded-lg p-6 mb-6">
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Как интерпретировать результаты</h3>
               <ul className="space-y-2 text-gray-700">
                 <li><strong>75%+</strong> - Отличное соответствие. Юриспруденция - ваш путь!</li>
                 <li><strong>60-74%</strong> - Хорошее соответствие. Можно идти, но важно учесть слабые зоны.</li>
@@ -1194,23 +1224,23 @@ const LawStudentAssessment = () => {
               </ul>
             </div>
 
-            <div className="bg-green-50 rounded-lg p-6 mb-6 border-l-4 border-green-500">
-              <h3 className="text-lg font-bold text-gray-800 mb-3">📊 Источник данных о зарплатах</h3>
-              <p className="text-gray-700 mb-2">
-                Все данные о зарплатах и условиях работы основаны на масштабном исследовании:
+            <div className="bg-gradient-to-br from-emerald-50/50 to-green-50/50 border border-emerald-100 backdrop-blur-sm rounded-lg p-6 mb-6">
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Источник данных о зарплатах</h3>
+              <p className="text-gray-700 mb-2 italic">
+                Все данные о зарплатах и условиях работы основаны на масштабном исследовании
               </p>
               <ul className="space-y-1 text-gray-700">
                 <li><strong>Обзор зарплат юристов Legal Jobs 2024-2025</strong></li>
-                <li>• 3872 респондента по всей России</li>
-                <li>• Данные собраны: октябрь 2024 - февраль 2025</li>
-                <li>• Средний рост зарплат: +15-20% год к году</li>
-                <li>• При повышении: +30-40% к зарплате</li>
+                <li>3872 респондента по всей России</li>
+                <li>Данные собраны: октябрь 2024 - февраль 2025</li>
+                <li>Средний рост зарплат: +15-20% год к году</li>
+                <li>При повышении: +30-40% к зарплате</li>
               </ul>
             </div>
 
             <button
               onClick={restart}
-              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-6 rounded-xl transition-colors duration-200 shadow-lg"
+              className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:shadow-2xl hover:shadow-cyan-500/30 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg"
             >
               Пройти тест заново
             </button>
@@ -1225,28 +1255,35 @@ const LawStudentAssessment = () => {
   const isAnswered = answers[question.id] !== undefined;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 md:p-8">
+    <div className="min-h-screen bg-white p-4 md:p-8 relative overflow-hidden">
+      {/* Gradient Orbs Background */}
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-cyan-100/60 to-cyan-200/40 rounded-full blur-3xl opacity-80"></div>
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-100/60 to-purple-200/40 rounded-full blur-3xl opacity-80"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-[500px] h-[500px] bg-gradient-to-br from-blue-100/40 to-blue-200/30 rounded-full blur-3xl opacity-70"></div>
+      </div>
+
       <div className="max-w-3xl mx-auto">
-        <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-10">
+        <div className="bg-white/70 backdrop-blur-sm border border-gray-200/60 rounded-2xl shadow-lg p-6 md:p-10 transition-all duration-300 hover:shadow-xl hover:bg-white/90">
           <div className="mb-6">
             <div className="flex justify-between items-center mb-2">
-              <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
                 Тест для будущего юриста
               </h1>
-              <span className="text-lg font-semibold text-indigo-600">
+              <span className="text-lg font-semibold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
                 {currentQuestion + 1} / {questions.length}
               </span>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-3">
+            <div className="w-full bg-gray-200/50 rounded-full h-3 backdrop-blur-sm">
               <div
-                className="bg-indigo-600 h-3 rounded-full transition-all duration-300"
+                className="bg-gradient-to-r from-cyan-600 to-blue-600 h-3 rounded-full transition-all duration-300 shadow-lg shadow-cyan-500/30"
                 style={{ width: `${progress}%` }}
               ></div>
             </div>
           </div>
 
           <div className="mb-8">
-            <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-6 leading-relaxed">
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-6 leading-relaxed">
               {question.text}
             </h2>
 
@@ -1255,23 +1292,24 @@ const LawStudentAssessment = () => {
                 <button
                   key={index}
                   onClick={() => handleAnswer(question.id, option.value, option.weight)}
-                  className={`w-full text-left p-5 rounded-xl border-2 transition-all duration-200 ${
+                  className={`group relative w-full text-left p-5 rounded-xl border transition-all duration-300 ${
                     answers[question.id]?.value === option.value
-                      ? 'border-indigo-600 bg-indigo-50 shadow-md'
-                      : 'border-gray-200 bg-white hover:border-indigo-300 hover:bg-indigo-50'
+                      ? 'border-cyan-300 bg-white/90 shadow-lg shadow-cyan-500/10'
+                      : 'border-gray-200/60 bg-white/50 hover:border-cyan-200 hover:bg-white/90 hover:shadow-xl'
                   }`}
                 >
-                  <div className="flex items-center">
-                    <div className={`w-6 h-6 rounded-full border-2 mr-4 flex items-center justify-center ${
+                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-100/20 via-purple-100/20 to-blue-100/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="flex items-center relative z-10">
+                    <div className={`w-6 h-6 rounded-full border-2 mr-4 flex items-center justify-center transition-all duration-300 ${
                       answers[question.id]?.value === option.value
-                        ? 'border-indigo-600 bg-indigo-600'
+                        ? 'border-cyan-600 bg-gradient-to-br from-cyan-600 to-blue-600 shadow-lg shadow-cyan-500/30'
                         : 'border-gray-300'
                     }`}>
                       {answers[question.id]?.value === option.value && (
                         <div className="w-3 h-3 bg-white rounded-full"></div>
                       )}
                     </div>
-                    <span className="text-gray-800 text-base md:text-lg">{option.label}</span>
+                    <span className="text-gray-700 text-base md:text-lg">{option.label}</span>
                   </div>
                 </button>
               ))}
@@ -1282,10 +1320,10 @@ const LawStudentAssessment = () => {
             <button
               onClick={prevQuestion}
               disabled={currentQuestion === 0}
-              className={`flex-1 py-3 px-6 rounded-xl font-semibold transition-all duration-200 ${
+              className={`flex-1 py-3 px-6 rounded-xl font-semibold transition-all duration-300 ${
                 currentQuestion === 0
-                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                  : 'bg-gray-300 text-gray-700 hover:bg-gray-400'
+                  ? 'bg-gray-200/50 text-gray-400 cursor-not-allowed'
+                  : 'bg-white/70 text-gray-700 border border-gray-200/60 hover:bg-white/90 hover:shadow-lg backdrop-blur-sm'
               }`}
             >
               Назад
@@ -1293,10 +1331,10 @@ const LawStudentAssessment = () => {
             <button
               onClick={nextQuestion}
               disabled={!isAnswered}
-              className={`flex-1 py-3 px-6 rounded-xl font-semibold transition-all duration-200 ${
+              className={`flex-1 py-3 px-6 rounded-xl font-semibold transition-all duration-300 ${
                 !isAnswered
-                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                  : 'bg-indigo-600 text-white hover:bg-indigo-700 shadow-lg'
+                  ? 'bg-gray-200/50 text-gray-400 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-cyan-600 to-blue-600 text-white hover:shadow-xl hover:shadow-cyan-500/30 shadow-lg'
               }`}
             >
               {currentQuestion === questions.length - 1 ? 'Показать результаты' : 'Далее'}
