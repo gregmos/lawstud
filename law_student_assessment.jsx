@@ -1,12 +1,13 @@
 // For GitHub Pages: React and lucide-react loaded via CDN
 const { useState } = React;
-const { AlertCircle, CheckCircle, XCircle, TrendingUp } = lucide;
+const { AlertCircle, CheckCircle, XCircle, TrendingUp, Star } = lucide;
 
 const LawStudentAssessment = () => {
   const [testStarted, setTestStarted] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
   const [showResults, setShowResults] = useState(false);
+  const [criticalAnswers, setCriticalAnswers] = useState({});
 
   const questions = [
     {
@@ -258,6 +259,16 @@ const LawStudentAssessment = () => {
         { value: 3, label: 'Были мысли, но право всё же приоритетнее', weight: 1.0 },
         { value: 5, label: 'Нет, только юриспруденция', weight: 1.5 }
       ]
+    },
+    {
+      id: 26,
+      category: 'mobility',
+      text: 'Насколько важна для вас возможность свободно путешествовать и работать из разных стран?',
+      options: [
+        { value: 5, label: 'Критически важно, я хочу работать и путешествовать одновременно', weight: 1.8 },
+        { value: 3, label: 'Было бы приятно, но не обязательно', weight: 1.0 },
+        { value: 1, label: 'Не важно, предпочитаю стабильную локацию', weight: 0.7 }
+      ]
     }
   ];
 
@@ -265,6 +276,13 @@ const LawStudentAssessment = () => {
     setAnswers({
       ...answers,
       [questionId]: { value, weight }
+    });
+  };
+
+  const toggleCritical = (questionId) => {
+    setCriticalAnswers({
+      ...criticalAnswers,
+      [questionId]: !criticalAnswers[questionId]
     });
   };
 
@@ -290,15 +308,19 @@ const LawStudentAssessment = () => {
     questions.forEach(question => {
       const answer = answers[question.id];
       if (answer) {
-        const weightedScore = answer.value * answer.weight;
+        // Если ответ помечен как критический, увеличиваем его вес в 1.5 раза
+        const criticalMultiplier = criticalAnswers[question.id] ? 1.5 : 1.0;
+        const effectiveWeight = answer.weight * criticalMultiplier;
+
+        const weightedScore = answer.value * effectiveWeight;
         totalScore += weightedScore;
-        maxScore += 5 * answer.weight;
+        maxScore += 5 * effectiveWeight;
 
         if (!categoryScores[question.category]) {
           categoryScores[question.category] = { score: 0, max: 0 };
         }
         categoryScores[question.category].score += weightedScore;
-        categoryScores[question.category].max += 5 * answer.weight;
+        categoryScores[question.category].max += 5 * effectiveWeight;
       }
     });
 
@@ -980,6 +1002,7 @@ const LawStudentAssessment = () => {
     setCurrentQuestion(0);
     setAnswers({});
     setShowResults(false);
+    setCriticalAnswers({});
   };
 
   const startTest = () => {
@@ -1409,6 +1432,30 @@ const LawStudentAssessment = () => {
                 </button>
               ))}
             </div>
+
+            {isAnswered && (
+              <div className="mt-6 bg-amber-50/50 border border-amber-200/60 rounded-xl p-4 backdrop-blur-sm">
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    <p className="text-sm text-gray-700 mb-2">
+                      <strong>Особо важный вопрос?</strong> Если данный вопрос имеет для вас критическое значение при выборе карьеры,
+                      отметьте его. Такие ответы получат больший вес в финальном анализе.
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => toggleCritical(question.id)}
+                    className={`ml-4 flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all duration-300 ${
+                      criticalAnswers[question.id]
+                        ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30'
+                        : 'bg-white border border-amber-200 text-gray-700 hover:bg-amber-50'
+                    }`}
+                  >
+                    <Star className={`w-5 h-5 ${criticalAnswers[question.id] ? 'fill-current' : ''}`} />
+                    {criticalAnswers[question.id] ? 'Помечено' : 'Пометить'}
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="flex gap-4">
