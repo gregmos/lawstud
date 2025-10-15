@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { AlertCircle, CheckCircle, XCircle, TrendingUp } from 'lucide-react';
+// For GitHub Pages: React and lucide-react loaded via CDN
+const { useState } = React;
+const { AlertCircle, CheckCircle, XCircle, TrendingUp } = lucide;
 
 const LawStudentAssessment = () => {
   const [testStarted, setTestStarted] = useState(false);
