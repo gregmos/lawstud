@@ -1440,5 +1440,3 @@ const LawStudentAssessment = () => {
     </div>
   );
 };
-
-export default LawStudentAssessment;
