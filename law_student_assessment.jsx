@@ -324,7 +324,7 @@ const LawStudentAssessment = () => {
       }
     });
 
-    const percentage = (totalScore / maxScore) * 100;
+    const percentage = maxScore > 0 ? (totalScore / maxScore) * 100 : 0;
 
     // Критические категории
     const criticalCategories = ['motivation', 'stress_tolerance', 'work_style'];
@@ -338,7 +338,7 @@ const LawStudentAssessment = () => {
       }
     });
 
-    const criticalPercentage = (criticalScore / criticalMax) * 100;
+    const criticalPercentage = criticalMax > 0 ? (criticalScore / criticalMax) * 100 : 0;
 
     // Расчет профиля для рекомендаций
     const profile = calculateProfile(categoryScores, answers);
@@ -354,7 +354,8 @@ const LawStudentAssessment = () => {
   const calculateProfile = (categoryScores, answers) => {
     const getPercent = (category) => {
       if (!categoryScores[category]) return 0;
-      return (categoryScores[category].score / categoryScores[category].max) * 100;
+      const max = categoryScores[category].max;
+      return max > 0 ? (categoryScores[category].score / max) * 100 : 0;
     };
 
     return {
@@ -1307,7 +1308,7 @@ const LawStudentAssessment = () => {
               <h3 className="text-xl font-bold text-gray-900 mb-4">Детализация по категориям</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {Object.entries(results.categoryScores).map(([category, scores]) => {
-                  const percentage = Math.round((scores.score / scores.max) * 100);
+                  const percentage = scores.max > 0 ? Math.round((scores.score / scores.max) * 100) : 0;
                   return (
                     <div key={category} className="bg-white/50 backdrop-blur-sm rounded-lg p-4 border border-gray-200/60 hover:bg-white/90 hover:shadow-lg transition-all duration-300">
                       <div className="flex justify-between mb-2">
@@ -1418,7 +1419,7 @@ const LawStudentAssessment = () => {
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-cyan-100/20 via-purple-100/20 to-blue-100/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="flex items-center relative z-10">
-                    <div className={`w-6 h-6 rounded-full border-2 mr-4 flex items-center justify-center transition-all duration-300 ${
+                    <div className={`w-6 h-6 flex-shrink-0 rounded-full border-2 mr-4 flex items-center justify-center transition-all duration-300 ${
                       answers[question.id]?.value === option.value
                         ? 'border-cyan-600 bg-gradient-to-br from-cyan-600 to-blue-600 shadow-lg shadow-cyan-500/30'
                         : 'border-gray-300'

@@ -7,6 +7,9 @@
     <meta name="theme-color" content="#0891b2">
     <title>Тест для будущих юристов | Legal Tech 101</title>
 
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖️</text></svg>">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Тест для будущих юристов">
@@ -27,9 +30,9 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- React -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- React (Production) -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 
     <!-- Babel Standalone -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -61,6 +64,11 @@
         html {
             scroll-behavior: smooth;
         }
+
+        /* Фикс для радио-кнопок на мобильных */
+        button > div > div[class*="rounded-full"] {
+            flex-shrink: 0; /* Предотвращаем сжатие кружочков */
+        }
     </style>
 </head>
 <body>
@@ -73,7 +81,7 @@
         // Wait for lucide to load
         lucide.createIcons();
 
-        const { AlertCircle, CheckCircle, XCircle, TrendingUp } = lucide;
+        const { AlertCircle, CheckCircle, XCircle, TrendingUp, Star } = lucide;
 
         // Render the app
         const root = ReactDOM.createRoot(document.getElementById('root'));
