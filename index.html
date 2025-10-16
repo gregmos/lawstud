@@ -37,8 +37,8 @@
     <!-- Babel Standalone -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- Lucide React Icons -->
+    <script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide-react.min.js"></script>
 
     <style>
         body {
@@ -78,9 +78,6 @@
     <script type="text/babel" src="law_student_assessment.jsx"></script>
 
     <script type="text/babel">
-        // Wait for lucide to load
-        lucide.createIcons();
-
         // Render the app
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<LawStudentAssessment />);

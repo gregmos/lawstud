@@ -1,12 +1,6 @@
 // For GitHub Pages: React and lucide-react loaded via CDN
-const { useState, createElement } = React;
-
-// Создаем React компоненты из lucide иконок
-const AlertCircle = (props) => createElement(lucide.AlertCircle, props);
-const CheckCircle = (props) => createElement(lucide.CheckCircle, props);
-const XCircle = (props) => createElement(lucide.XCircle, props);
-const TrendingUp = (props) => createElement(lucide.TrendingUp, props);
-const Star = (props) => createElement(lucide.Star, props);
+const { useState } = React;
+const { AlertCircle, CheckCircle, XCircle, TrendingUp, Star } = LucideReact;
 
 const LawStudentAssessment = () => {
   const [testStarted, setTestStarted] = useState(false);
