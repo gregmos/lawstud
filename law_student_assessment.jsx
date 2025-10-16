@@ -84,9 +84,9 @@ const LawStudentAssessment = () => {
       category: 'motivation',
       text: 'Почему вы выбрали юридическое образование?',
       options: [
-        { value: 5, label: 'Это моя осознанная мечта, я увлечен правом', weight: 2.0 },
-        { value: 3, label: 'Мне интересно, но были и другие варианты', weight: 1.2 },
-        { value: 1, label: 'По совету родителей/окружения или за компанию', weight: 0.5 }
+        { value: 5, label: 'Это моя осознанная мечта, я увлечен правом', weight: 1.5 },
+        { value: 3, label: 'Мне интересно, но были и другие варианты', weight: 1.1 },
+        { value: 1, label: 'По совету родителей/окружения или за компанию', weight: 0.8 }
       ]
     },
     {
@@ -94,9 +94,9 @@ const LawStudentAssessment = () => {
       category: 'work_life_balance',
       text: 'Насколько важен для вас баланс работы и личной жизни?',
       options: [
-        { value: 1, label: 'Готов(а) жертвовать личным временем ради карьеры', weight: 1.2 },
+        { value: 5, label: 'Готов(а) жертвовать личным временем ради карьеры', weight: 1.2 },
         { value: 3, label: 'Важен баланс, но готов(а) к периодическим перегрузкам', weight: 1.0 },
-        { value: 5, label: 'Личная жизнь превыше всего, нужен строгий график', weight: 0.6 }
+        { value: 1, label: 'Личная жизнь превыше всего, нужен строгий график', weight: 0.8 }
       ]
     },
     {
@@ -104,9 +104,9 @@ const LawStudentAssessment = () => {
       category: 'stress_tolerance',
       text: 'Как вы справляетесь с конфликтными ситуациями?',
       options: [
-        { value: 5, label: 'Конфликты меня мотивируют, я умею их разрешать', weight: 1.8 },
+        { value: 5, label: 'Конфликты меня мотивируют, я умею их разрешать', weight: 1.4 },
         { value: 3, label: 'Справляюсь, но они выматывают эмоционально', weight: 1.0 },
-        { value: 1, label: 'Конфликты причиняют мне сильный дискомфорт', weight: 0.4 }
+        { value: 1, label: 'Конфликты причиняют мне сильный дискомфорт', weight: 0.8 }
       ]
     },
     {
@@ -114,9 +114,9 @@ const LawStudentAssessment = () => {
       category: 'work_style',
       text: 'Как вы относитесь к работе с большими объемами документов?',
       options: [
-        { value: 5, label: 'Люблю работать с деталями и документацией', weight: 1.5 },
+        { value: 5, label: 'Люблю работать с деталями и документацией', weight: 1.4 },
         { value: 3, label: 'Нормально отношусь, если это часть интересной задачи', weight: 1.0 },
-        { value: 1, label: 'Рутинная работа с бумагами меня угнетает', weight: 0.5 }
+        { value: 1, label: 'Рутинная работа с бумагами меня угнетает', weight: 0.8 }
       ]
     },
     {
@@ -124,9 +124,9 @@ const LawStudentAssessment = () => {
       category: 'learning',
       text: 'Готовы ли вы постоянно учиться и следить за изменениями законодательства?',
       options: [
-        { value: 5, label: 'Да, я люблю постоянно развиваться и учиться новому', weight: 1.8 },
+        { value: 5, label: 'Да, я люблю постоянно развиваться и учиться новому', weight: 1.4 },
         { value: 3, label: 'Готов(а) учиться, когда это необходимо', weight: 1.0 },
-        { value: 1, label: 'Предпочитаю применять уже полученные знания', weight: 0.6 }
+        { value: 1, label: 'Предпочитаю применять уже полученные знания', weight: 0.8 }
       ]
     },
     {
@@ -156,7 +156,7 @@ const LawStudentAssessment = () => {
       options: [
         { value: 5, label: 'Дедлайны мобилизуют меня, работаю эффективнее', weight: 1.3 },
         { value: 3, label: 'Справляюсь, но это стрессово', weight: 1.0 },
-        { value: 1, label: 'Дедлайны парализуют меня', weight: 0.5 }
+        { value: 1, label: 'Дедлайны парализуют меня', weight: 0.8 }
       ]
     },
     {
@@ -164,7 +164,7 @@ const LawStudentAssessment = () => {
       category: 'intellectual',
       text: 'Интересуетесь ли вы сложными интеллектуальными задачами и головоломками?',
       options: [
-        { value: 5, label: 'Да, это то, что меня вдохновляет', weight: 1.6 },
+        { value: 5, label: 'Да, это то, что меня вдохновляет', weight: 1.4 },
         { value: 3, label: 'Иногда интересно, но не всегда', weight: 1.0 },
         { value: 1, label: 'Предпочитаю практические, а не теоретические задачи', weight: 0.8 }
       ]
@@ -204,9 +204,9 @@ const LawStudentAssessment = () => {
       category: 'writing',
       text: 'Как вы относитесь к написанию длинных, структурированных текстов?',
       options: [
-        { value: 5, label: 'Люблю писать, могу часами работать над текстом', weight: 1.5 },
+        { value: 5, label: 'Люблю писать, могу часами работать над текстом', weight: 1.4 },
         { value: 3, label: 'Пишу нормально, когда необходимо', weight: 1.0 },
-        { value: 1, label: 'Письменная работа дается мне с трудом', weight: 0.5 }
+        { value: 1, label: 'Письменная работа дается мне с трудом', weight: 0.8 }
       ]
     },
     {
@@ -214,9 +214,9 @@ const LawStudentAssessment = () => {
       category: 'analytical',
       text: 'Насколько хорошо вы работаете с большими объемами информации?',
       options: [
-        { value: 5, label: 'Отлично, люблю анализировать и систематизировать', weight: 1.7 },
+        { value: 5, label: 'Отлично, люблю анализировать и систематизировать', weight: 1.4 },
         { value: 3, label: 'Справляюсь, но это требует усилий', weight: 1.0 },
-        { value: 1, label: 'Большие объемы информации меня перегружают', weight: 0.5 }
+        { value: 1, label: 'Большие объемы информации меня перегружают', weight: 0.8 }
       ]
     },
     {
@@ -226,7 +226,7 @@ const LawStudentAssessment = () => {
       options: [
         { value: 5, label: 'Да, это часть профессии, умею находить подход', weight: 1.4 },
         { value: 3, label: 'Готов(а), но это выматывает', weight: 1.0 },
-        { value: 1, label: 'Предпочитаю минимум контактов с клиентами', weight: 0.6 }
+        { value: 1, label: 'Предпочитаю минимум контактов с клиентами', weight: 0.8 }
       ]
     },
     {
@@ -236,17 +236,17 @@ const LawStudentAssessment = () => {
       options: [
         { value: 5, label: 'Нормально, понимаю её важность, она меня не раздражает', weight: 1.2 },
         { value: 3, label: 'Терплю, если она чередуется с интересными задачами', weight: 1.0 },
-        { value: 1, label: 'Монотонность убивает мою мотивацию', weight: 0.5 }
+        { value: 1, label: 'Монотонность убивает мою мотивацию', weight: 0.8 }
       ]
     },
     {
       id: 20,
       category: 'career_path',
-      text: 'Видите ли вы себя в роли партнера юридической фирмы или судьи через 15-20 лет?',
+      text: 'Как вы представляете себе идеальную карьеру через 10 лет?',
       options: [
-        { value: 5, label: 'Да, это моя цель', weight: 1.6 },
-        { value: 3, label: 'Возможно, но не обязательно', weight: 1.0 },
-        { value: 1, label: 'Нет, или я не думал(а) так далеко', weight: 0.7 }
+        { value: 5, label: 'Руководящая позиция с влиянием на решения', weight: 1.4 },
+        { value: 3, label: 'Стабильная позиция эксперта в своей области', weight: 1.0 },
+        { value: 1, label: 'Комфортная работа с балансом жизни', weight: 0.8 }
       ]
     },
     {
@@ -256,7 +256,7 @@ const LawStudentAssessment = () => {
       options: [
         { value: 5, label: 'Да, это нормально для развития карьеры', weight: 1.4 },
         { value: 3, label: 'Готов(а), но с трудом', weight: 1.0 },
-        { value: 1, label: 'Нет, мне нужна достойная зарплата сразу', weight: 0.6 }
+        { value: 1, label: 'Нет, мне нужна достойная зарплата сразу', weight: 0.8 }
       ]
     },
     {
@@ -276,7 +276,7 @@ const LawStudentAssessment = () => {
       options: [
         { value: 5, label: 'Нормально, если работа интересная и оплачивается', weight: 1.2 },
         { value: 3, label: 'В исключительных случаях - да', weight: 1.0 },
-        { value: 1, label: 'Недопустимо, мне нужны четкие границы', weight: 0.5 }
+        { value: 1, label: 'Недопустимо, мне нужны четкие границы', weight: 0.8 }
       ]
     },
     {
@@ -286,7 +286,7 @@ const LawStudentAssessment = () => {
       options: [
         { value: 5, label: 'Очень комфортно, я люблю знакомиться с людьми', weight: 1.4 },
         { value: 3, label: 'Могу при необходимости, но это требует усилий', weight: 1.0 },
-        { value: 1, label: 'Это даётся мне очень тяжело', weight: 0.6 }
+        { value: 1, label: 'Это даётся мне очень тяжело', weight: 0.8 }
       ]
     },
     {
@@ -304,9 +304,9 @@ const LawStudentAssessment = () => {
       category: 'mobility',
       text: 'Насколько важна для вас возможность свободно путешествовать и работать из разных стран?',
       options: [
-        { value: 5, label: 'Критически важно, я хочу работать и путешествовать одновременно', weight: 1.8 },
+        { value: 5, label: 'Критически важно, я хочу работать и путешествовать одновременно', weight: 1.4 },
         { value: 3, label: 'Было бы приятно, но не обязательно', weight: 1.0 },
-        { value: 1, label: 'Не важно, предпочитаю стабильную локацию', weight: 0.7 }
+        { value: 1, label: 'Не важно, предпочитаю стабильную локацию', weight: 0.8 }
       ]
     }
   ];
@@ -347,8 +347,8 @@ const LawStudentAssessment = () => {
     questions.forEach(question => {
       const answer = answers[question.id];
       if (answer) {
-        // Если ответ помечен как критический, увеличиваем его вес в 1.5 раза
-        const criticalMultiplier = criticalAnswers[question.id] ? 1.5 : 1.0;
+        // Если ответ помечен как критический, увеличиваем его вес в 1.3 раза
+        const criticalMultiplier = criticalAnswers[question.id] ? 1.3 : 1.0;
         const effectiveWeight = answer.weight * criticalMultiplier;
 
         const weightedScore = answer.value * effectiveWeight;
@@ -374,14 +374,14 @@ const LawStudentAssessment = () => {
       redFlagsPenalty += 10;
       redFlags.push({
         severity: 'critical',
-        message: 'Конфликты причиняют вам дискомфорт - юристы регулярно сталкиваются с конфликтными ситуациями'
+        message: 'Вы выбрали юриспруденцию по совету окружения - без внутренней мотивации профессия может разочаровать'
       });
     }
     if (answers[6] && answers[6].value === 1) {
       redFlagsPenalty += 10;
       redFlags.push({
         severity: 'critical',
-        message: 'Вы выбрали юриспруденцию по совету окружения - без внутренней мотивации профессия может разочаровать'
+        message: 'Конфликты причиняют вам дискомфорт - юристы регулярно сталкиваются с конфликтными ситуациями'
       });
     }
     if (answers[11] && answers[11].value === 1) {
@@ -490,14 +490,14 @@ const LawStudentAssessment = () => {
 
     // Судебная практика и арбитраж
     const litigationScore = (
-      (profile.stressTolerance >= 75 ? 30 : profile.stressTolerance >= 70 ? 25 : profile.stressTolerance >= 65 ? 15 : 0) +
-      (profile.communication >= 70 ? 25 : profile.communication >= 65 ? 20 : profile.communication >= 60 ? 10 : 0) +
-      (profile.analytical >= 70 ? 20 : profile.analytical >= 65 ? 15 : 0) +
-      (profile.writing >= 65 ? 15 : profile.writing >= 60 ? 10 : 0) +
-      (profile.perfectionism >= 60 ? 10 : 0)
+      (profile.stressTolerance >= 70 ? 30 : profile.stressTolerance >= 65 ? 25 : profile.stressTolerance >= 60 ? 15 : 0) +
+      (profile.communication >= 65 ? 25 : profile.communication >= 60 ? 20 : profile.communication >= 55 ? 10 : 0) +
+      (profile.analytical >= 65 ? 20 : profile.analytical >= 60 ? 15 : profile.analytical >= 55 ? 10 : 0) +
+      (profile.writing >= 60 ? 15 : profile.writing >= 55 ? 10 : 0) +
+      (profile.perfectionism >= 55 ? 10 : 0)
     );
 
-    if (litigationScore >= 65) {
+    if (litigationScore >= 60) {
       specializations.push({
         name: 'Судебная практика и арбитраж',
         match: litigationScore,
@@ -513,14 +513,14 @@ const LawStudentAssessment = () => {
 
     // Корпоративное право и M&A
     const corporateScore = (
-      (profile.analytical >= 75 ? 30 : profile.analytical >= 70 ? 25 : profile.analytical >= 65 ? 15 : 0) +
-      (profile.writing >= 70 ? 25 : profile.writing >= 65 ? 20 : profile.writing >= 60 ? 10 : 0) +
-      (profile.perfectionism >= 70 ? 20 : profile.perfectionism >= 65 ? 15 : profile.perfectionism >= 60 ? 10 : 0) +
-      (profile.monotony >= 60 ? 15 : profile.monotony >= 55 ? 10 : 0) +
-      (profile.overtime >= 60 ? 10 : 0)
+      (profile.analytical >= 70 ? 30 : profile.analytical >= 65 ? 25 : profile.analytical >= 60 ? 15 : 0) +
+      (profile.writing >= 65 ? 25 : profile.writing >= 60 ? 20 : profile.writing >= 55 ? 10 : 0) +
+      (profile.perfectionism >= 65 ? 20 : profile.perfectionism >= 60 ? 15 : profile.perfectionism >= 55 ? 10 : 0) +
+      (profile.monotony >= 55 ? 15 : profile.monotony >= 50 ? 10 : 0) +
+      (profile.overtime >= 55 ? 10 : 0)
     );
 
-    if (corporateScore >= 65) {
+    if (corporateScore >= 60) {
       specializations.push({
         name: 'Корпоративное право и M&A',
         match: corporateScore,
@@ -536,13 +536,13 @@ const LawStudentAssessment = () => {
 
     // Налоговое право
     const taxScore = (
-      (profile.analytical >= 75 ? 35 : profile.analytical >= 70 ? 30 : profile.analytical >= 65 ? 20 : 0) +
-      (profile.monotony >= 65 ? 30 : profile.monotony >= 60 ? 25 : profile.monotony >= 55 ? 15 : 0) +
-      (profile.perfectionism >= 65 ? 20 : profile.perfectionism >= 60 ? 15 : 0) +
-      (profile.stressTolerance < 70 ? 15 : profile.stressTolerance < 60 ? 10 : 0)
+      (profile.analytical >= 70 ? 35 : profile.analytical >= 65 ? 30 : profile.analytical >= 60 ? 20 : 0) +
+      (profile.monotony >= 60 ? 30 : profile.monotony >= 55 ? 25 : profile.monotony >= 50 ? 15 : 0) +
+      (profile.perfectionism >= 60 ? 20 : profile.perfectionism >= 55 ? 15 : 0) +
+      (profile.stressTolerance <= 50 ? 15 : profile.stressTolerance <= 60 ? 10 : 0)
     );
 
-    if (taxScore >= 65) {
+    if (taxScore >= 60) {
       specializations.push({
         name: 'Налоговое право',
         match: taxScore,
@@ -558,13 +558,13 @@ const LawStudentAssessment = () => {
 
     // Интеллектуальная собственность
     const ipScore = (
-      (profile.analytical >= 75 ? 30 : profile.analytical >= 70 ? 25 : profile.analytical >= 65 ? 15 : 0) +
-      (profile.perfectionism >= 70 ? 30 : profile.perfectionism >= 65 ? 25 : profile.perfectionism >= 60 ? 15 : 0) +
-      (profile.writing >= 70 ? 25 : profile.writing >= 65 ? 20 : profile.writing >= 60 ? 10 : 0) +
-      (profile.monotony >= 60 ? 15 : profile.monotony >= 55 ? 10 : 0)
+      (profile.analytical >= 70 ? 30 : profile.analytical >= 65 ? 25 : profile.analytical >= 60 ? 15 : 0) +
+      (profile.perfectionism >= 65 ? 30 : profile.perfectionism >= 60 ? 25 : profile.perfectionism >= 55 ? 15 : 0) +
+      (profile.writing >= 65 ? 25 : profile.writing >= 60 ? 20 : profile.writing >= 55 ? 10 : 0) +
+      (profile.monotony >= 55 ? 15 : profile.monotony >= 50 ? 10 : 0)
     );
 
-    if (ipScore >= 65) {
+    if (ipScore >= 60) {
       specializations.push({
         name: 'Интеллектуальная собственность',
         match: ipScore,
@@ -580,13 +580,13 @@ const LawStudentAssessment = () => {
 
     // Трудовое право и HR
     const laborScore = (
-      (profile.clientWork >= 70 ? 30 : profile.clientWork >= 65 ? 25 : profile.clientWork >= 60 ? 15 : 0) +
-      (profile.ethics >= 75 ? 25 : profile.ethics >= 70 ? 20 : profile.ethics >= 65 ? 10 : 0) +
-      (profile.communication >= 70 ? 25 : profile.communication >= 65 ? 20 : profile.communication >= 60 ? 10 : 0) +
-      (profile.stressTolerance >= 65 ? 20 : profile.stressTolerance >= 60 ? 15 : 0)
+      (profile.clientWork >= 65 ? 30 : profile.clientWork >= 60 ? 25 : profile.clientWork >= 55 ? 15 : 0) +
+      (profile.ethics >= 70 ? 25 : profile.ethics >= 65 ? 20 : profile.ethics >= 60 ? 10 : 0) +
+      (profile.communication >= 65 ? 25 : profile.communication >= 60 ? 20 : profile.communication >= 55 ? 10 : 0) +
+      (profile.stressTolerance >= 60 ? 20 : profile.stressTolerance >= 55 ? 15 : 0)
     );
 
-    if (laborScore >= 65) {
+    if (laborScore >= 60) {
       specializations.push({
         name: 'Трудовое право',
         match: laborScore,
@@ -625,14 +625,14 @@ const LawStudentAssessment = () => {
 
     // Международное право
     const internationalScore = (
-      (profile.mobility >= 75 ? 35 : profile.mobility >= 70 ? 30 : profile.mobility >= 65 ? 20 : 0) +
-      (profile.analytical >= 75 ? 25 : profile.analytical >= 70 ? 20 : profile.analytical >= 65 ? 10 : 0) +
-      (profile.networking >= 70 ? 20 : profile.networking >= 65 ? 15 : profile.networking >= 60 ? 10 : 0) +
-      (profile.communication >= 65 ? 15 : profile.communication >= 60 ? 10 : 0) +
-      (profile.stressTolerance >= 65 ? 5 : 0)
+      (profile.mobility >= 70 ? 35 : profile.mobility >= 65 ? 30 : profile.mobility >= 60 ? 20 : 0) +
+      (profile.analytical >= 70 ? 25 : profile.analytical >= 65 ? 20 : profile.analytical >= 60 ? 10 : 0) +
+      (profile.networking >= 65 ? 20 : profile.networking >= 60 ? 15 : profile.networking >= 55 ? 10 : 0) +
+      (profile.communication >= 60 ? 15 : profile.communication >= 55 ? 10 : 0) +
+      (profile.stressTolerance >= 60 ? 5 : 0)
     );
 
-    if (internationalScore >= 75) {
+    if (internationalScore >= 70) {
       specializations.push({
         name: 'Международное право и арбитраж',
         match: internationalScore,
@@ -648,13 +648,13 @@ const LawStudentAssessment = () => {
 
     // Уголовное право
     const criminalScore = (
-      (profile.stressTolerance >= 80 ? 35 : profile.stressTolerance >= 75 ? 30 : profile.stressTolerance >= 70 ? 20 : 0) +
-      (profile.ethics >= 80 ? 30 : profile.ethics >= 75 ? 25 : profile.ethics >= 70 ? 15 : 0) +
-      (profile.communication >= 75 ? 25 : profile.communication >= 70 ? 20 : profile.communication >= 65 ? 10 : 0) +
-      (profile.careerAmbition >= 65 ? 10 : 0)
+      (profile.stressTolerance >= 75 ? 30 : profile.stressTolerance >= 70 ? 25 : profile.stressTolerance >= 65 ? 15 : 0) +
+      (profile.ethics >= 75 ? 25 : profile.ethics >= 70 ? 20 : profile.ethics >= 65 ? 15 : 0) +
+      (profile.communication >= 70 ? 25 : profile.communication >= 65 ? 20 : profile.communication >= 60 ? 10 : 0) +
+      (profile.careerAmbition >= 60 ? 10 : 0)
     );
 
-    if (criminalScore >= 75) {
+    if (criminalScore >= 70) {
       specializations.push({
         name: 'Уголовное право',
         match: criminalScore,
@@ -692,14 +692,14 @@ const LawStudentAssessment = () => {
 
     // Банкротство и реструктуризация
     const bankruptcyScore = (
-      (profile.analytical >= 75 ? 30 : profile.analytical >= 70 ? 25 : profile.analytical >= 65 ? 15 : 0) +
-      (profile.stressTolerance >= 75 ? 30 : profile.stressTolerance >= 70 ? 25 : profile.stressTolerance >= 65 ? 15 : 0) +
+      (profile.analytical >= 70 ? 30 : profile.analytical >= 65 ? 25 : profile.analytical >= 60 ? 15 : 0) +
+      (profile.stressTolerance >= 70 ? 30 : profile.stressTolerance >= 65 ? 25 : profile.stressTolerance >= 60 ? 15 : 0) +
       (profile.financialSpeed <= 2 ? 20 : profile.financialSpeed <= 3 ? 15 : profile.financialSpeed <= 4 ? 10 : 0) +
-      (profile.perfectionism >= 65 ? 15 : profile.perfectionism >= 60 ? 10 : 0) +
-      (profile.clientWork >= 60 ? 5 : 0)
+      (profile.perfectionism >= 60 ? 15 : profile.perfectionism >= 55 ? 10 : 0) +
+      (profile.clientWork >= 55 ? 5 : 0)
     );
 
-    if (bankruptcyScore >= 65) {
+    if (bankruptcyScore >= 60) {
       specializations.push({
         name: 'Банкротство и реструктуризация',
         match: bankruptcyScore,
@@ -715,14 +715,14 @@ const LawStudentAssessment = () => {
 
     // Legal Tech и инновации
     const legalTechScore = (
-      (profile.entrepreneurial >= 75 ? 30 : profile.entrepreneurial >= 70 ? 25 : profile.entrepreneurial >= 65 ? 15 : 0) +
-      (profile.analytical >= 75 ? 25 : profile.analytical >= 70 ? 20 : profile.analytical >= 65 ? 10 : 0) +
-      (profile.motivation >= 80 ? 25 : profile.motivation >= 75 ? 20 : profile.motivation >= 70 ? 10 : 0) +
-      (profile.networking >= 65 ? 15 : profile.networking >= 60 ? 10 : 0) +
-      (profile.careerAmbition >= 65 ? 5 : 0)
+      (profile.entrepreneurial >= 70 ? 30 : profile.entrepreneurial >= 65 ? 25 : profile.entrepreneurial >= 60 ? 15 : 0) +
+      (profile.analytical >= 70 ? 25 : profile.analytical >= 65 ? 20 : profile.analytical >= 60 ? 10 : 0) +
+      (profile.motivation >= 75 ? 25 : profile.motivation >= 70 ? 20 : profile.motivation >= 65 ? 10 : 0) +
+      (profile.networking >= 60 ? 15 : profile.networking >= 55 ? 10 : 0) +
+      (profile.careerAmbition >= 60 ? 5 : 0)
     );
 
-    if (legalTechScore >= 75) {
+    if (legalTechScore >= 70) {
       specializations.push({
         name: 'Legal Tech и инновации',
         match: legalTechScore,
@@ -738,13 +738,13 @@ const LawStudentAssessment = () => {
 
     // Собственная практика / Предпринимательство
     const privatePracticeScore = (
-      (profile.entrepreneurial >= 80 ? 35 : profile.entrepreneurial >= 75 ? 30 : profile.entrepreneurial >= 70 ? 20 : 0) +
-      (profile.networking >= 75 ? 30 : profile.networking >= 70 ? 25 : profile.networking >= 65 ? 15 : 0) +
-      (profile.clientWork >= 75 ? 25 : profile.clientWork >= 70 ? 20 : profile.clientWork >= 65 ? 10 : 0) +
-      (profile.motivation >= 75 ? 10 : 0)
+      (profile.entrepreneurial >= 75 ? 35 : profile.entrepreneurial >= 70 ? 30 : profile.entrepreneurial >= 65 ? 20 : 0) +
+      (profile.networking >= 70 ? 30 : profile.networking >= 65 ? 25 : profile.networking >= 60 ? 15 : 0) +
+      (profile.clientWork >= 70 ? 25 : profile.clientWork >= 65 ? 20 : profile.clientWork >= 60 ? 10 : 0) +
+      (profile.motivation >= 70 ? 10 : profile.motivation >= 65 ? 5 : 0)
     );
 
-    if (privatePracticeScore >= 75) {
+    if (privatePracticeScore >= 70) {
       specializations.push({
         name: 'Собственная практика / Предпринимательство',
         match: privatePracticeScore,
@@ -791,14 +791,14 @@ const LawStudentAssessment = () => {
 
     // Крупные юридические фирмы (Big Law)
     const bigLawScore = (
-      (profile.stressTolerance >= 70 ? 25 : 0) +
-      (profile.overtime >= 60 ? 20 : 0) +
-      (profile.careerAmbition >= 70 ? 25 : 0) +
-      (profile.financialSpeed >= 4 ? 15 : 0) +
-      (profile.networking >= 65 ? 15 : 0)
+      (profile.stressTolerance >= 65 ? 25 : profile.stressTolerance >= 60 ? 20 : profile.stressTolerance >= 55 ? 10 : 0) +
+      (profile.overtime >= 55 ? 20 : profile.overtime >= 50 ? 15 : 0) +
+      (profile.careerAmbition >= 65 ? 25 : profile.careerAmbition >= 60 ? 20 : profile.careerAmbition >= 55 ? 10 : 0) +
+      (profile.financialSpeed >= 4 ? 15 : profile.financialSpeed >= 3 ? 10 : 0) +
+      (profile.networking >= 60 ? 15 : profile.networking >= 55 ? 10 : 0)
     );
-    
-    if (bigLawScore >= 70) {
+
+    if (bigLawScore >= 65) {
       employers.push({
         type: 'Крупные юридические фирмы (Big Law)',
         match: bigLawScore,
@@ -862,14 +862,14 @@ const LawStudentAssessment = () => {
 
     // Бутиковые юрфирмы
     const boutiqueScore = (
-      (profile.entrepreneurial >= 65 ? 25 : 0) +
-      (profile.networking >= 60 ? 20 : 0) +
-      (profile.workLifeBalance >= 50 ? 20 : 0) +
-      (profile.motivation >= 70 ? 20 : 0) +
-      (profile.clientWork >= 65 ? 15 : 0)
+      (profile.entrepreneurial >= 60 ? 25 : profile.entrepreneurial >= 55 ? 20 : 0) +
+      (profile.networking >= 55 ? 20 : profile.networking >= 50 ? 15 : 0) +
+      (profile.workLifeBalance >= 45 ? 20 : profile.workLifeBalance >= 40 ? 15 : 0) +
+      (profile.motivation >= 65 ? 20 : profile.motivation >= 60 ? 15 : 0) +
+      (profile.clientWork >= 60 ? 15 : profile.clientWork >= 55 ? 10 : 0)
     );
 
-    if (boutiqueScore >= 70) {
+    if (boutiqueScore >= 65) {
       employers.push({
         type: 'Бутиковые юридические фирмы',
         match: boutiqueScore,
@@ -924,14 +924,14 @@ const LawStudentAssessment = () => {
 
     // Суды
     const courtScore = (
-      (profile.ethics >= 80 ? 30 : 0) +
-      (profile.analytical >= 75 ? 25 : 0) +
-      (profile.perfectionism >= 70 ? 20 : 0) +
-      (profile.workLifeBalance >= 65 ? 15 : 0) +
-      (profile.careerAmbition >= 60 ? 10 : 0)
+      (profile.ethics >= 75 ? 30 : profile.ethics >= 70 ? 25 : profile.ethics >= 65 ? 15 : 0) +
+      (profile.analytical >= 70 ? 25 : profile.analytical >= 65 ? 20 : profile.analytical >= 60 ? 10 : 0) +
+      (profile.perfectionism >= 65 ? 20 : profile.perfectionism >= 60 ? 15 : profile.perfectionism >= 55 ? 10 : 0) +
+      (profile.workLifeBalance >= 60 ? 15 : profile.workLifeBalance >= 55 ? 10 : 0) +
+      (profile.careerAmbition >= 55 ? 10 : 0)
     );
 
-    if (courtScore >= 70) {
+    if (courtScore >= 65) {
       employers.push({
         type: 'Судебная система',
         match: courtScore,
@@ -986,14 +986,14 @@ const LawStudentAssessment = () => {
 
     // Big4
     const big4Score = (
-      (profile.analytical >= 70 ? 25 : 0) +
-      (profile.monotony >= 55 ? 20 : 0) +
-      (profile.workLifeBalance >= 50 ? 15 : 0) +
-      (profile.clientWork >= 65 ? 20 : 0) +
-      (profile.mobility >= 60 ? 20 : 0)
+      (profile.analytical >= 65 ? 25 : profile.analytical >= 60 ? 20 : profile.analytical >= 55 ? 10 : 0) +
+      (profile.monotony >= 50 ? 20 : profile.monotony >= 45 ? 15 : 0) +
+      (profile.workLifeBalance >= 45 ? 15 : profile.workLifeBalance >= 40 ? 10 : 0) +
+      (profile.clientWork >= 60 ? 20 : profile.clientWork >= 55 ? 15 : 0) +
+      (profile.mobility >= 55 ? 20 : profile.mobility >= 50 ? 15 : 0)
     );
 
-    if (big4Score >= 70) {
+    if (big4Score >= 65) {
       employers.push({
         type: 'Бывшие Big4 (теперь российские компании)',
         match: big4Score,
@@ -1022,11 +1022,11 @@ const LawStudentAssessment = () => {
 
     // Предпринимательство
     const entrepreneurScore = (
-      (profile.entrepreneurial >= 75 ? 30 : 0) +
-      (profile.networking >= 70 ? 25 : 0) +
-      (profile.clientWork >= 70 ? 20 : 0) +
-      (profile.motivation >= 80 ? 15 : 0) +
-      (profile.careerAmbition >= 70 ? 10 : 0)
+      (profile.entrepreneurial >= 70 ? 30 : profile.entrepreneurial >= 65 ? 25 : 0) +
+      (profile.networking >= 65 ? 25 : profile.networking >= 60 ? 20 : 0) +
+      (profile.clientWork >= 65 ? 20 : profile.clientWork >= 60 ? 15 : 0) +
+      (profile.motivation >= 75 ? 15 : profile.motivation >= 70 ? 10 : 0) +
+      (profile.careerAmbition >= 65 ? 10 : profile.careerAmbition >= 60 ? 5 : 0)
     );
 
     if (entrepreneurScore >= 65) {
@@ -1126,33 +1126,36 @@ const LawStudentAssessment = () => {
   };
 
   const getRecommendation = (percentage, criticalPercentage) => {
-    if (percentage >= 75 && criticalPercentage >= 70) {
+    // Проверяем критически низкие значения ПЕРВЫМИ
+    if (percentage < 35 || criticalPercentage < 30) {
+      return {
+        type: 'error',
+        icon: XCircle,
+        title: 'Рекомендуем пересмотреть выбор',
+        text: '⚠️ Важно помнить: это всего лишь тест, отражающий мое субъективное видение. Не воспринимайте результат как приговор. Однако если вы получили "Рекомендуем пересмотреть выбор", стоит серьезно задуматься и обсудить варианты с карьерным консультантом.'
+      };
+    }
+
+    if (percentage >= 70 && criticalPercentage >= 65) {
       return {
         type: 'success',
         icon: CheckCircle,
         title: 'Настоятельно рекомендуем',
         text: 'Юриспруденция отлично подходит вам! У вас есть необходимые качества, мотивация и понимание специфики профессии. Вы готовы к вызовам юридической карьеры.'
       };
-    } else if (percentage >= 60 && criticalPercentage >= 60) {
+    } else if (percentage >= 55 && criticalPercentage >= 50) {
       return {
         type: 'warning',
         icon: TrendingUp,
         title: 'Рекомендуем с оговорками',
         text: 'У вас есть потенциал для карьеры юриста, но важно учесть некоторые моменты. Возможно, стоит поработать над определенными аспектами или выбрать специализацию, которая лучше соответствует вашим сильным сторонам.'
       };
-    } else if (percentage >= 45 || criticalPercentage >= 45) {
+    } else {
       return {
         type: 'caution',
         icon: AlertCircle,
         title: 'Требуется тщательное обдумывание',
         text: 'Результаты показывают, что некоторые аспекты юридической профессии могут быть для вас сложными. Это не означает, что вы не можете стать юристом, но важно честно оценить свою готовность.'
-      };
-    } else {
-      return {
-        type: 'error',
-        icon: XCircle,
-        title: 'Рекомендуем пересмотреть выбор',
-        text: '⚠️ Важно помнить: это всего лишь тест, отражающий мое субъективное видение. Не воспринимайте результат как приговор. Однако если вы получили "Рекомендуем пересмотреть выбор", стоит серьезно задуматься и обсудить варианты с карьерным консультантом.'
       };
     }
   };
