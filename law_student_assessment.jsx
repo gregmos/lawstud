@@ -424,7 +424,7 @@ const LawStudentAssessment = () => {
       });
     }
 
-    // Применяем штраф за красные флаги
+    // Применяем штраф за красные флаги к общему баллу
     percentage = Math.max(0, percentage - redFlagsPenalty);
 
     // Критические категории
@@ -439,7 +439,11 @@ const LawStudentAssessment = () => {
       }
     });
 
-    const criticalPercentage = criticalMax > 0 ? (criticalScore / criticalMax) * 100 : 0;
+    let criticalPercentage = criticalMax > 0 ? (criticalScore / criticalMax) * 100 : 0;
+
+    // Применяем штраф за красные флаги к критическим параметрам
+    // (те же флаги влияют на критические параметры, т.к. многие из них относятся к motivation, stress_tolerance, work_style)
+    criticalPercentage = Math.max(0, criticalPercentage - redFlagsPenalty);
 
     // Расчет профиля для рекомендаций
     const profile = calculateProfile(categoryScores, answers);
@@ -1135,8 +1139,7 @@ const LawStudentAssessment = () => {
         type: 'warning',
         icon: TrendingUp,
         title: 'Рекомендуем с оговорками',
-        text: 'У вас есть потенциал для карьеры юриста, но важно учесть некоторые моменты. Возможно, стоит поработать над определенными аспектами или выбрать специализацию, которая лучше соответствует вашим сильным сторонам.',
-        advice: 'Попробуйте пройти стажировку в юридической компании перед окончательным решением. Подумайте о специализациях, которые меньше связаны с судебными спорами (например, корпоративное право, комплаенс).'
+        text: 'У вас есть потенциал для карьеры юриста, но важно учесть некоторые моменты. Возможно, стоит поработать над определенными аспектами или выбрать специализацию, которая лучше соответствует вашим сильным сторонам.'
       };
     } else if (percentage >= 45 || criticalPercentage >= 45) {
       return {
@@ -1346,9 +1349,11 @@ const LawStudentAssessment = () => {
                 <h2 className="text-2xl font-bold text-gray-900">{recommendation.title}</h2>
               </div>
               <p className="text-gray-700 text-lg mb-4 italic">{recommendation.text}</p>
-              <div className="bg-white/70 backdrop-blur-sm rounded-lg p-4 border border-gray-200/60">
-                <p className="text-gray-700 font-medium">{recommendation.advice}</p>
-              </div>
+              {recommendation.advice && (
+                <div className="bg-white/70 backdrop-blur-sm rounded-lg p-4 border border-gray-200/60">
+                  <p className="text-gray-700 font-medium">{recommendation.advice}</p>
+                </div>
+              )}
             </div>
 
             {/* Критические предупреждения (красные флаги) */}
@@ -1617,16 +1622,20 @@ const LawStudentAssessment = () => {
 
             <div className="bg-gradient-to-br from-emerald-50/50 to-green-50/50 border border-emerald-100 backdrop-blur-sm rounded-lg p-6 mb-6">
               <h3 className="text-lg font-bold text-gray-900 mb-3">Источник данных о зарплатах</h3>
-              <p className="text-gray-700 mb-2 italic">
-                Все данные о зарплатах и условиях работы основаны на масштабном исследовании
+              <p className="text-gray-700 mb-2">
+                Все данные о зарплатах и условиях работы основаны на <strong>Обзоре зарплат юристов Legal Jobs 2024-2025</strong>
               </p>
-              <ul className="space-y-1 text-gray-700">
-                <li><strong>Обзор зарплат юристов Legal Jobs 2024-2025</strong></li>
-                <li>3872 респондента по всей России</li>
-                <li>Данные собраны: октябрь 2024 - февраль 2025</li>
-                <li>Средний рост зарплат: +15-20% год к году</li>
-                <li>При повышении: +30-40% к зарплате</li>
-              </ul>
+              <p className="text-gray-700">
+                Подробнее:{' '}
+                <a
+                  href="https://t.me/max_legal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cyan-600 hover:text-cyan-700 underline font-medium"
+                >
+                  Max Legal
+                </a>
+              </p>
             </div>
 
             <button
