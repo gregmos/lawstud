@@ -1131,8 +1131,7 @@ const LawStudentAssessment = () => {
         type: 'success',
         icon: CheckCircle,
         title: 'Настоятельно рекомендуем',
-        text: 'Юриспруденция отлично подходит вам! У вас есть необходимые качества, мотивация и понимание специфики профессии. Вы готовы к вызовам юридической карьеры.',
-        advice: 'Рекомендуем сосредоточиться на выборе специализации (корпоративное право, судебная практика, международное право и т.д.). Начните изучать рынок юридических услуг и ведущие компании.'
+        text: 'Юриспруденция отлично подходит вам! У вас есть необходимые качества, мотивация и понимание специфики профессии. Вы готовы к вызовам юридической карьеры.'
       };
     } else if (percentage >= 60 && criticalPercentage >= 60) {
       return {
@@ -1146,31 +1145,14 @@ const LawStudentAssessment = () => {
         type: 'caution',
         icon: AlertCircle,
         title: 'Требуется тщательное обдумывание',
-        text: 'Результаты показывают, что некоторые аспекты юридической профессии могут быть для вас сложными. Это не означает, что вы не можете стать юристом, но важно честно оценить свою готовность.',
-        advice: 'Рекомендуем: 1) Поговорить с практикующими юристами о реалиях профессии; 2) Рассмотреть смежные специальности (HR-менеджмент, комплаенс, юридическая журналистика); 3) Взять gap year для размышлений или пройти онлайн-курсы по праву.'
+        text: 'Результаты показывают, что некоторые аспекты юридической профессии могут быть для вас сложными. Это не означает, что вы не можете стать юристом, но важно честно оценить свою готовность.'
       };
     } else {
       return {
         type: 'error',
         icon: XCircle,
         title: 'Рекомендуем пересмотреть выбор',
-        text: '⚠️ Важно помнить: это всего лишь тест, отражающий мое субъективное видение. Не воспринимайте результат как приговор. Однако если вы получили "Рекомендуем пересмотреть выбор", стоит серьезно задуматься и обсудить варианты с карьерным консультантом.',
-        advice: `Рекомендуем:
-
-• Обратиться к карьерному консультанту для детального разбора ваших сильных сторон
-• Пообщаться с практикующими юристами разных специализаций о реалиях профессии
-• Рассмотреть смежные области и стыковые специальности:
-  - HR и трудовое консультирование (без судебной практики)
-  - Комплаенс и внутренний контроль (меньше конфликтов)
-  - Правовая аналитика и исследования (без клиентской работы)
-  - Legal Operations (управление юридическими процессами)
-  - Правовой журнализм и коммуникации
-  - GR (связи с государством) и лоббизм
-  - Медиация и альтернативное разрешение споров
-
-Иногда даже в юриспруденции можно найти что-то привлекательное на стыке областей. Главное - честно оценить свои ожидания и готовность к реалиям профессии.
-
-Помните: выбор неподходящей карьеры стоит дороже (в деньгах, времени и эмоциональном выгорании), чем честное признание несовпадения на старте.`
+        text: '⚠️ Важно помнить: это всего лишь тест, отражающий мое субъективное видение. Не воспринимайте результат как приговор. Однако если вы получили "Рекомендуем пересмотреть выбор", стоит серьезно задуматься и обсудить варианты с карьерным консультантом.'
       };
     }
   };
@@ -1349,11 +1331,6 @@ const LawStudentAssessment = () => {
                 <h2 className="text-2xl font-bold text-gray-900">{recommendation.title}</h2>
               </div>
               <p className="text-gray-700 text-lg mb-4 italic">{recommendation.text}</p>
-              {recommendation.advice && (
-                <div className="bg-white/70 backdrop-blur-sm rounded-lg p-4 border border-gray-200/60">
-                  <p className="text-gray-700 font-medium">{recommendation.advice}</p>
-                </div>
-              )}
             </div>
 
             {/* Критические предупреждения (красные флаги) */}
@@ -1486,24 +1463,24 @@ const LawStudentAssessment = () => {
                     <div key={index} className="group relative bg-white/50 backdrop-blur-sm rounded-lg p-5 border border-cyan-200/60 hover:bg-white/90 hover:shadow-xl transition-all duration-300">
                       <div className="absolute inset-0 bg-gradient-to-br from-cyan-100/20 via-purple-100/20 to-blue-100/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <div className="relative z-10">
-                        <div className="flex justify-between items-start mb-3">
-                          <h4 className="text-lg font-bold text-gray-900">{spec.name}</h4>
-                          <span className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg shadow-cyan-500/30">
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-3">
+                          <h4 className="text-lg font-bold text-gray-900 break-words">{spec.name}</h4>
+                          <span className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg shadow-cyan-500/30 whitespace-nowrap self-start">
                             {spec.match}% совпадение
                           </span>
                         </div>
-                        <p className="text-gray-700 mb-3">{spec.description}</p>
+                        <p className="text-gray-700 mb-3 break-words">{spec.description}</p>
                         <div className="mb-3">
                           <p className="font-semibold text-gray-900 mb-1">Почему подходит:</p>
                           <ul className="list-disc list-inside text-gray-700 space-y-1">
                             {spec.reasons.map((reason, i) => (
-                              <li key={i}>{reason}</li>
+                              <li key={i} className="break-words">{reason}</li>
                             ))}
                           </ul>
                         </div>
                         <div className="bg-white/70 backdrop-blur-sm rounded p-3 border border-gray-200/60">
                           <p className="font-semibold text-gray-900 mb-1">Где работать:</p>
-                          <p className="text-gray-700 text-sm">{spec.employers.join(', ')}</p>
+                          <p className="text-gray-700 text-sm break-words">{spec.employers.join(', ')}</p>
                         </div>
                       </div>
                     </div>
@@ -1531,25 +1508,25 @@ const LawStudentAssessment = () => {
                     <div key={index} className="group relative bg-white/50 backdrop-blur-sm rounded-lg p-5 border border-gray-200/60 hover:bg-white/90 hover:shadow-xl transition-all duration-300">
                       <div className="absolute inset-0 bg-gradient-to-br from-cyan-100/20 via-purple-100/20 to-blue-100/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                       <div className="relative z-10">
-                        <div className="flex justify-between items-start mb-3">
-                          <h4 className="text-lg font-bold text-gray-900">{employer.type}</h4>
-                          <div className="flex items-center">
-                            <span className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg shadow-cyan-500/30 mr-2">
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-3">
+                          <h4 className="text-lg font-bold text-gray-900 break-words">{employer.type}</h4>
+                          <div className="flex items-center self-start">
+                            <span className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg shadow-cyan-500/30 whitespace-nowrap">
                               {employer.match}%
                             </span>
                           </div>
                         </div>
 
                         <div className="bg-cyan-50 border border-cyan-100 rounded-lg p-3 mb-3">
-                          <p className="font-semibold text-cyan-900 text-sm">{employer.fit}</p>
+                          <p className="font-semibold text-cyan-900 text-sm break-words">{employer.fit}</p>
                         </div>
 
-                      <div className="grid md:grid-cols-2 gap-4 mb-3">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
                         <div>
                           <p className="font-semibold text-emerald-700 mb-2">Плюсы:</p>
                           <ul className="space-y-1">
                             {employer.pros.map((pro, i) => (
-                              <li key={i} className="text-sm text-gray-700">• {pro}</li>
+                              <li key={i} className="text-sm text-gray-700 break-words">• {pro}</li>
                             ))}
                           </ul>
                         </div>
@@ -1557,7 +1534,7 @@ const LawStudentAssessment = () => {
                           <p className="font-semibold text-amber-700 mb-2">Минусы:</p>
                           <ul className="space-y-1">
                             {employer.cons.map((con, i) => (
-                              <li key={i} className="text-sm text-gray-700">• {con}</li>
+                              <li key={i} className="text-sm text-gray-700 break-words">• {con}</li>
                             ))}
                           </ul>
                         </div>
@@ -1565,13 +1542,13 @@ const LawStudentAssessment = () => {
 
                       <div className="bg-white/70 backdrop-blur-sm rounded p-3 border border-gray-200/60">
                         <p className="font-semibold text-gray-900 text-sm mb-1">Примеры:</p>
-                        <p className="text-gray-700 text-sm">{employer.examples.join(', ')}</p>
+                        <p className="text-gray-700 text-sm break-words">{employer.examples.join(', ')}</p>
                       </div>
 
                       {employer.salary && (
                         <div className="bg-purple-50 border border-purple-100 rounded p-3 mt-3">
                           <p className="font-semibold text-purple-900 text-sm mb-1">Зарплаты (Москва, 2025):</p>
-                          <p className="text-purple-800 text-sm">{employer.salary}</p>
+                          <p className="text-purple-800 text-sm break-words">{employer.salary}</p>
                         </div>
                       )}
                       </div>
@@ -1625,13 +1602,13 @@ const LawStudentAssessment = () => {
               <p className="text-gray-700 mb-2">
                 Все данные о зарплатах и условиях работы основаны на <strong>Обзоре зарплат юристов Legal Jobs 2024-2025</strong>
               </p>
-              <p className="text-gray-700">
+              <p className="text-gray-700 break-words">
                 Подробнее:{' '}
                 <a
                   href="https://t.me/max_legal"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-cyan-600 hover:text-cyan-700 underline font-medium"
+                  className="text-cyan-600 hover:text-cyan-700 underline font-medium break-all"
                 >
                   Max Legal
                 </a>
