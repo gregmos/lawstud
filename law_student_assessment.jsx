@@ -623,7 +623,7 @@ const LawStudentAssessment = () => {
         type: 'Крупные юридические фирмы (Big Law)',
         match: bigLawScore,
         pros: [
-          'Высокие зарплаты: ILF 120-200 тыс. (junior), российские 80-120 тыс.',
+          'Высокие зарплаты: NewLF 120-200 тыс. (junior), российские 80-120 тыс.',
           'Престиж и имя в резюме',
           'Сложные проекты и крупные клиенты',
           'Быстрое профессиональное развитие',
@@ -636,11 +636,11 @@ const LawStudentAssessment = () => {
           'Риск выгорания'
         ],
         examples: [
-          'Международные (ILF): Baker McKenzie, CMS, Dentons - зарплаты в 1.5-2 раза выше',
+          'Бывшие международные (NewLF): Nextons (бывш. Dentons), Melling Voytishkin (бывш. Baker McKenzie), SEAMLESS Legal (бывш. CMS)',
           'Российские: Пепеляев Групп, ЕПАМ, АЛРУД'
         ],
         fit: profile.overtime >= 60 && profile.stressTolerance >= 70 ? 'Отлично подходит' : 'Подходит с оговорками',
-        salary: 'Junior: ILF 120-200 тыс., российские 80-120 тыс. | Senior: ILF 500-600 тыс., российские 200-300 тыс.'
+        salary: 'Junior: NewLF 120-200 тыс., российские 80-120 тыс. | Senior: NewLF 500-600 тыс., российские 200-300 тыс.'
       });
     }
 
@@ -815,56 +815,28 @@ const LawStudentAssessment = () => {
 
     if (big4Score >= 55) {
       employers.push({
-        type: 'Big4 (Deloitte, PwC, EY, KPMG)',
+        type: 'Бывшие Big4 (теперь российские компании)',
         match: big4Score,
         pros: [
           'Хорошее имя в резюме',
           'Структурированное обучение',
-          'Международный опыт',
           'Разнообразие проектов (tax, compliance, M&A support)',
           'Годовые бонусы (примерно 70% получают)'
         ],
         cons: [
-          'Зарплаты на 30-50% ниже, чем в ILF',
+          'Зарплаты на 30-50% ниже, чем в NewLF',
           'Много рутинной работы',
           'Иерархичность',
           'Фокус на продажах услуг (billable hours)'
         ],
-        examples: ['Deloitte Legal', 'PwC Legal', 'EY Law', 'KPMG Law'],
+        examples: [
+          'Деловые решения и технологии (бывш. Deloitte)',
+          'Технологии доверия (бывш. PwC)',
+          'Б1 (бывш. EY)',
+          'Кэпт (бывш. KPMG)'
+        ],
         fit: profile.analytical >= 70 && profile.monotony >= 55 ? 'Хорошо подходит' : 'Возможный вариант',
         salary: 'Analyst: 80-150 тыс. | Consultant: 150-300 тыс. | Manager: 300-600 тыс. | Partner: 800 тыс. - 2+ млн'
-      });
-    }
-
-    // Стратегический консалтинг
-    const stratConsultingScore = (
-      (profile.analytical >= 80 ? 30 : 0) +
-      (profile.networking >= 75 ? 25 : 0) +
-      (profile.entrepreneurial >= 75 ? 20 : 0) +
-      (profile.overtime >= 70 ? 15 : 0) +
-      (profile.communication >= 70 ? 10 : 0)
-    );
-
-    if (stratConsultingScore >= 65) {
-      employers.push({
-        type: 'Стратегический консалтинг (MBB)',
-        match: stratConsultingScore,
-        pros: [
-          'Топовые зарплаты мирового уровня',
-          'Абсолютный престиж (МВА от лучших школ не круче)',
-          'Работа с CEO Fortune 500',
-          'Невероятное развитие аналитических навыков',
-          'Бонусы 100%+ от оклада'
-        ],
-        cons: [
-          'Экстремальный ритм работы (80-100+ часов/неделю)',
-          'Жесткая Up or out культура',
-          'Почти нет личной жизни первые 5 лет',
-          'Постоянные командировки (жизнь в самолетах)'
-        ],
-        examples: ['McKinsey & Company', 'Boston Consulting Group (BCG)', 'Bain & Company', 'Strategy& (PwC)'],
-        fit: profile.analytical >= 80 && profile.overtime >= 70 ? 'Для супер-амбициозных' : 'Очень высокие требования',
-        salary: 'Analyst/Associate: 200-400 тыс. + бонусы 100% | Consultant: 500 тыс. - 1 млн | Manager: 1.5-3 млн | Partner: от 5+ млн'
       });
     }
 
@@ -1224,7 +1196,15 @@ const LawStudentAssessment = () => {
                   ></div>
                 </div>
                 <p className="text-sm text-gray-500 mt-1 italic">
-                  Мотивация, стрессоустойчивость и стиль работы
+                  Оценка только ключевых для юриста категорий: мотивация, стрессоустойчивость и стиль работы
+                </p>
+              </div>
+
+              <div className="mt-4 bg-blue-50/50 border border-blue-100 rounded-lg p-4">
+                <p className="text-sm text-gray-700">
+                  <strong>Что означают эти показатели?</strong><br />
+                  <strong>Общий балл</strong> — это оценка по всем ответам теста, показывает общее соответствие профессии юриста.<br />
+                  <strong>Критические параметры</strong> — оценка только самых важных для юриста качеств (мотивация, стрессоустойчивость, стиль работы). Даже при высоком общем балле низкие критические параметры могут указывать на сложности в профессии.
                 </p>
               </div>
             </div>
@@ -1422,13 +1402,13 @@ const LawStudentAssessment = () => {
       </div>
 
       <div className="max-w-3xl mx-auto">
-        <div className="bg-white/70 backdrop-blur-sm border border-gray-200/60 rounded-2xl shadow-lg p-6 md:p-10 transition-all duration-300 hover:shadow-xl hover:bg-white/90">
-          <div className="mb-6">
+        <div className="bg-white/70 backdrop-blur-sm border border-gray-200/60 rounded-2xl shadow-lg p-4 md:p-8 transition-all duration-300 hover:shadow-xl hover:bg-white/90">
+          <div className="mb-3">
             <div className="flex justify-between items-center mb-2">
-              <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+              <h1 className="text-base md:text-lg font-bold text-gray-900">
                 Тест для будущего юриста
               </h1>
-              <span className="text-lg font-semibold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
+              <span className="text-sm font-semibold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
                 {currentQuestion + 1} / {questions.length}
               </span>
             </div>
@@ -1440,17 +1420,17 @@ const LawStudentAssessment = () => {
             </div>
           </div>
 
-          <div className="mb-8">
-            <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-6 leading-relaxed">
+          <div className="mb-4">
+            <h2 className="text-base md:text-lg font-semibold text-gray-900 mb-3 leading-snug">
               {question.text}
             </h2>
 
-            <div className="space-y-4">
+            <div className="space-y-3">
               {question.options.map((option, index) => (
                 <button
                   key={index}
                   onClick={() => handleAnswer(question.id, option.value, option.weight)}
-                  className={`group relative w-full text-left p-5 rounded-xl border transition-all duration-300 ${
+                  className={`group relative w-full text-left p-3 md:p-4 rounded-xl border transition-all duration-300 ${
                     answers[question.id]?.value === option.value
                       ? 'border-cyan-300 bg-white/90 shadow-lg shadow-cyan-500/10'
                       : 'border-gray-200/60 bg-white/50 hover:border-cyan-200 hover:bg-white/90 hover:shadow-xl'
@@ -1467,31 +1447,30 @@ const LawStudentAssessment = () => {
                         <div className="w-3 h-3 bg-white rounded-full"></div>
                       )}
                     </div>
-                    <span className="text-gray-700 text-base md:text-lg">{option.label}</span>
+                    <span className="text-gray-700 text-sm md:text-base">{option.label}</span>
                   </div>
                 </button>
               ))}
             </div>
 
             {isAnswered && (
-              <div className="mt-6 bg-amber-50/50 border border-amber-200/60 rounded-xl p-4 backdrop-blur-sm">
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+              <div className="mt-4 bg-amber-50/50 border border-amber-200/60 rounded-lg p-3 backdrop-blur-sm">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                   <div className="flex-1">
-                    <p className="text-sm text-gray-700">
-                      <strong>Особо важный вопрос?</strong> Если данный вопрос имеет для вас критическое значение при выборе карьеры,
-                      отметьте его. Такие ответы получат больший вес в финальном анализе.
+                    <p className="text-xs text-gray-700">
+                      <strong>Особо важный вопрос?</strong> Отметьте, если критически важен — получит больший вес в анализе.
                     </p>
                   </div>
                   <button
                     onClick={() => toggleCritical(question.id)}
-                    className={`flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all duration-300 whitespace-nowrap ${
+                    className={`flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap ${
                       criticalAnswers[question.id]
-                        ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30'
+                        ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md shadow-amber-500/30'
                         : 'bg-white border border-amber-200 text-gray-700 hover:bg-amber-50'
                     }`}
                   >
-                    <Star className={`w-5 h-5 ${criticalAnswers[question.id] ? 'fill-current' : ''}`} />
-                    <span className="text-sm sm:text-base">{criticalAnswers[question.id] ? 'Помечено' : 'Пометить'}</span>
+                    <Star className={`w-4 h-4 ${criticalAnswers[question.id] ? 'fill-current' : ''}`} />
+                    <span>{criticalAnswers[question.id] ? 'Помечено' : 'Пометить'}</span>
                   </button>
                 </div>
               </div>
